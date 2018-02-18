@@ -1,0 +1,17 @@
+package com.nowcoder.wenda.model;
+
+public class User {
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return "This is " + name;
+    }
+}
