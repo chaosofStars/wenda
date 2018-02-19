@@ -1,12 +1,11 @@
 package com.nowcoder.wenda.controller;
 
 import com.nowcoder.wenda.model.User;
-import com.nowcoder.wenda.service.WendaService;
+import com.nowcoder.wenda.service.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -18,12 +17,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
-@Controller
+//@Controller
 public class IndexController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @Autowired
-    WendaService service;
+    TestService service;
 
     @RequestMapping(path = {"/", "index"})
     @ResponseBody
@@ -45,7 +44,7 @@ public class IndexController {
             map.put(String.valueOf(i), String.valueOf(i * i));
         }
         model.addAttribute("map", map);
-        model.addAttribute("user", new User("aaron"));
+        model.addAttribute("user", new User());
         return "freemarkerTest";
     }
 

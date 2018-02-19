@@ -14,7 +14,6 @@ import java.util.Date;
 @Aspect
 @Component
 public class LogAspect {
-
     private static final Logger logger = LoggerFactory.getLogger(LogAspect.class);
     @Before("execution(* com.nowcoder.wenda.controller.*Controller.*(..))")
     public void beforeMethod(JoinPoint joinPoint) {
