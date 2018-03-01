@@ -13,11 +13,15 @@
     <#--</#list>-->
     <#--${user.description}-->
     <#--${user.getDescription()}-->
-    <#list vos as vo>
-        ${vo.user.name}
-        ${vo.question.title}
-        ${vo.question.content}
-    </#list>
+    <#--<#list vos as vo>-->
+        <#--${vo.user.name}-->
+        <#--${vo.question.title}-->
+        <#--${vo.question.content}-->
+    <#--</#list>-->
+    <#assign msg="123">
+    <#if msg??>
+        ${msg}
+    </#if>
 </pre>
 </body>
 </html>

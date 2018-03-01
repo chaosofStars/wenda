@@ -23,7 +23,7 @@ public class LoginConrtroller {
     @Autowired
     UserService userService;
 
-    @RequestMapping(path = "/reg/", method = RequestMethod.POST)
+    @RequestMapping(path = {"/reg/"}, method = RequestMethod.POST)
     public String reg(Model model, @RequestParam("username") String username,
                       @RequestParam("password") String password,
                       @RequestParam("next") String next,
@@ -41,7 +41,7 @@ public class LoginConrtroller {
 
 
 
-        @RequestMapping(path = "/login/", method = RequestMethod.POST)
+    @RequestMapping(path = "/login/", method = RequestMethod.POST)
     public String login(Model model,
                         @RequestParam("password") String password,
                         @RequestParam("username") String username,

@@ -34,7 +34,7 @@ public class InitDatabaseTest {
             user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
             user.setName(String.format("USER%d", i));
             user.setPassword("");
-            user.setSalt("");
+            user.setSalt("" );
             userDAO.addUser(user);
 
             user.setPassword("xx");

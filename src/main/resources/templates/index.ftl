@@ -1,5 +1,6 @@
 <#include "header.ftl">
-
+<link rel="stylesheet" href="../styles/index.css">
+<link rel="stylesheet" href="../styles/detail.css">
     <div class="zg-wrap zu-main clearfix " role="main">
         <div class="zu-main-content">
             <div class="zu-main-content-inner">
@@ -13,13 +14,14 @@
                 <div class="zu-main-feed-con navigable" data-feedtype="topstory" id="zh-question-list" data-widget="navigable" data-navigable-options="{&quot;items&quot;:&quot;&gt; .zh-general-list .feed-content&quot;,&quot;offsetTop&quot;:-82}">
                     <a href="javascript:;" class="zu-main-feed-fresh-button" id="zh-main-feed-fresh-button" style="display:none"></a>
                     <div id="js-home-feed-list" class="zh-general-list topstory clearfix" data-init="{&quot;params&quot;: {}, &quot;nodename&quot;: &quot;TopStory2FeedList&quot;}" data-delayed="true" data-za-module="TopStoryFeedList">
-                        <div class="feed-item folding feed-item-hook feed-item-1
-                        " feed-item-p="" data-type="p" id="feed-1" data-za-module="FeedItem" data-za-index="">
-                            <#list vos as vo>
+
+                        <#list vos as vo>
+                        <div class="feed-item folding feed-item-hook feed-item-2
+                        " feed-item-a="" data-type="a" id="feed-2" data-za-module="FeedItem" data-za-index="">
                             <meta itemprop="ZReactor" data-id="389034" data-meta="{&quot;source_type&quot;: &quot;promotion_answer&quot;, &quot;voteups&quot;: 4168, &quot;comments&quot;: 69, &quot;source&quot;: []}">
                             <div class="feed-item-inner">
                                 <div class="avatar">
-                                    <a title="李淼" data-tip="p$t$amuro1230" class="zm-item-link-avatar" target="_blank" href="https://nowcoder.com/people/amuro1230">
+                                    <a title="${vo.user.name}" data-tip="p$t$amuro1230" class="zm-item-link-avatar" target="_blank" href="https://nowcoder.com/people/amuro1230">
                                         <img src="${vo.user.headUrl}" class="zm-item-img-avatar"></a>
                                 </div>
                                 <div class="feed-main">
@@ -27,18 +29,23 @@
                                         <meta itemprop="answer-id" content="389034">
                                         <meta itemprop="answer-url-token" content="13174385">
                                         <h2 class="feed-title">
-                                            <a class="question_link" target="_blank" href="/user/${vo.user.id}">${vo.question.title}</a></h2>
+                                            <a class="question_link" target="_blank" href="/question/${vo.question.id}">${vo.question.title}</a></h2>
                                         <div class="feed-question-detail-item">
                                             <div class="question-description-plain zm-editable-content"></div>
                                         </div>
                                         <div class="expandable entry-body">
-                                            <div class="zm-item-rich-text expandable js-collapse-body" data-resourceid="123114" data-action="/answer/content" data-author-name="${vo.user.name}" data-entry-url="/question/19857995/answer/13174385">
-
-                                                <div class="zh-summary summary clearfix">${vo.question.content}<br>
-                                                    ${vo.question.createdDate?string("yyyy-MM-dd HH:mm:ss")}
-                                                    <a href="https://nowcoder.com/question/19857995/answer/13174385" class="toggle-expand">显示全部</a></div>
-                                                <p class="visible-expanded">
-                                                    <a itemprop="url" class="answer-date-link meta-item" data-tip="s$t$发布于 2011-09-23" target="_blank" href="https://nowcoder.com/question/19857995/answer/13174385">编辑于 2015-06-24</a></p>
+                                            <div class="zm-item-vote">
+                                                <a class="zm-item-vote-count js-expand js-vote-count" href="javascript:;" data-bind-votecount="">4168</a></div>
+                                            <div class="zm-item-answer-author-info">
+                                                <a class="author-link" data-tip="p$b$amuro1230" target="_blank" href="/user/${vo.user.id}">${vo.user.name}</a>
+                                               ${vo.question.createdDate?string('yyyy-MM-dd HH:mm:ss')})</div>
+                                            <div class="zm-item-vote-info" data-votecount="4168" data-za-module="VoteInfo">
+                                                <span class="voters text">
+                                                    <a href="#" class="more text">
+                                                        <span class="js-voteCount">4168</span>&nbsp;人赞同</a></span>
+                                            </div>
+                                            <div class="zm-item-rich-text expandable js-collapse-body" data-resourceid="123114" data-action="/answer/content" data-author-name="李淼" data-entry-url="/question/19857995/answer/13174385">
+                                                <div class="zh-summary summary clearfix">${vo.question.content}</div>
                                             </div>
                                         </div>
                                         <div class="feed-meta">
@@ -48,26 +55,22 @@
                                                         <i class="z-icon-follow"></i>关注问题</a>
                                                     <a href="#" name="addcomment" class="meta-item toggle-comment js-toggleCommentBox">
                                                         <i class="z-icon-comment"></i>${vo.question.commentCount} 条评论</a>
-                                                    <a href="#" class="meta-item js-thank" data-thanked="false">
-                                                        <i class="z-icon-thank"></i>感谢</a>
 
 
                                                     <button class="meta-item item-collapse js-collapse">
                                                         <i class="z-icon-fold"></i>收起</button>
                                                 </div>
                                             </div>
-                                            <a href="#" class="ignore zu-autohide" name="dislike" data-tip="s$b$不感兴趣"></a>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="undo-dislike-options" data-item_id="2">此内容将不会在动态中再次显示
-                                <span class="zg-bull">•</span>
-                                <a href="#" class="meta-item revert">撤销</a>
-                                <a href="#" class="ignore zu-autohide close"></a>
-                            </div>
                         </div>
-                        <div class="feed-item folding feed-item-hook feed-item-3
-                        " feed-item-a="" data-type="a" id="feed-3" data-za-module="FeedItem" data-za-index="">
                         </#list>
+                    </div>
+                    <a href="javascript:;" id="zh-load-more" data-method="next" class="zg-btn-white zg-r3px zu-button-more" style="">更多</a></div>
+            </div>
+        </div>
+    </div>
 <#include "footer.ftl">

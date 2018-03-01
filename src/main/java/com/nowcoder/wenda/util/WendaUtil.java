@@ -1,8 +1,35 @@
 package com.nowcoder.wenda.util;
 
+import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.security.MessageDigest;
 
-public class MD5Util {
+public class WendaUtil {
+
+    private static final Logger logger = LoggerFactory.getLogger(WendaUtil.class);
+
+    //匿名用户id
+    public static int ANONYMOUS_USERID = 3;
+
+
+    //阿里巴巴JSON工具
+    public static String getJSONString(int code) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        return json.toJSONString();
+    }
+
+    public static String getJSONString(int code, String msg) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        json.put("msg", msg);
+        return json.toJSONString();
+    }
+
+
+
     public final static String MD5(String s) {
         char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         try {
@@ -24,14 +51,14 @@ public class MD5Util {
             }
             return new String(str);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("生成MD5失败", e);
             return null;
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(MD5Util.MD5("20121221"));
-        System.out.println(MD5Util.MD5("加密"));
+        System.out.println(WendaUtil.MD5("20121221"));
+        System.out.println(WendaUtil.MD5("加密"));
     }
 
 }

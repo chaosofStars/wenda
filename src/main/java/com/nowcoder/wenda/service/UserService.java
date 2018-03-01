@@ -4,7 +4,7 @@ import com.nowcoder.wenda.dao.LoginTicketDAO;
 import com.nowcoder.wenda.dao.UserDAO;
 import com.nowcoder.wenda.model.LoginTicket;
 import com.nowcoder.wenda.model.User;
-import com.nowcoder.wenda.util.MD5Util;
+import com.nowcoder.wenda.util.WendaUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +44,7 @@ public class UserService {
         user.setSalt(UUID.randomUUID().toString().substring(0, 5));
         user.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png",
                 new Random().nextInt(1000)));
-        user.setPassword(MD5Util.MD5(password.substring(0, 3) + user.getSalt() + password.substring(3)));
+        user.setPassword(WendaUtil.MD5(password.substring(0, 3) + user.getSalt() + password.substring(3)));
         userDAO.addUser(user);
 
         //登录
@@ -62,7 +62,7 @@ public class UserService {
         }
 
         User user = userDAO.selectByName(username);
-        String MD5password = MD5Util.MD5(password.substring(0, 3) + user.getSalt() + password.substring(3));
+        String MD5password = WendaUtil.MD5(password.substring(0, 3) + user.getSalt() + password.substring(3));
         if (!MD5password.equals(user.getPassword())) {
             map.put("msg", "密码错误");
             return map;
@@ -92,5 +92,9 @@ public class UserService {
     public void logout(String ticket) {
         ticketDAO.updateStatus(ticket, 1);
 
+    }
+
+    public User selectByName(String name) {
+        return userDAO.selectByName(name);
     }
 }
